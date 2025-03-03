@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="434.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CashierController">
+  <children>
+    <MenuBar prefHeight="54.0" prefWidth="677.0" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="432.0" prefWidth="834.0" VBox.vgrow="ALWAYS">
+         <children>
+            <GridPane layoutX="34.0" layoutY="197.0" prefHeight="162.0" prefWidth="391.0" AnchorPane.leftAnchor="34.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="openCashboxButton" mnemonicParsing="false" onAction="#handleOpenCashBoxButton" prefHeight="48.0" prefWidth="160.0" text="Open cashbox">
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+                  <Button fx:id="removeItemButton" mnemonicParsing="false" onAction="#handleButtonRemoveItemClick" prefHeight="48.0" prefWidth="160.0" text="Remove item" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="addItemButton" mnemonicParsing="false" onAction="#handleAddProductToSale" prefHeight="48.0" prefWidth="160.0" text="Add item" GridPane.columnIndex="2">
+                      <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="payWithCashButton" mnemonicParsing="false" onAction="#handlePayWithCashButton" prefHeight="48.0" prefWidth="160.0" text="Cash payment" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="payWithCardButton" mnemonicParsing="false" onAction="#handlePayWithCardButton" prefHeight="48.0" prefWidth="130.0" text="Card payment" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="printReceipsButton" mnemonicParsing="false" onAction="#handlePrintReceiptButton" prefHeight="48.0" prefWidth="160.0" text="Print last receipt" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cancelPaymentButton" mnemonicParsing="false" onAction="#handleCancelPaymentButton" prefHeight="48.0" prefWidth="160.0" text="Cancel payment" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="startNewSale" mnemonicParsing="false" onAction="#handleStartNewSaleButton" prefHeight="48.0" prefWidth="160.0" text="Start new sale" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="addDiscountButton" mnemonicParsing="false" onAction="#handleAddDiscountButton" prefHeight="48.0" prefWidth="160.0" text="Add discount" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="getBackSaleButton" mnemonicParsing="false" onAction="#handleGetBackSaleButton" prefHeight="48.0" prefWidth="160.0" text="Get back sale" GridPane.columnIndex="3">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="paymentStatusButton" mnemonicParsing="false" prefHeight="48.0" prefWidth="160.0" text="Payment Status" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="holdSaleButton" mnemonicParsing="false" onAction="#handleHoldSaleButton" prefHeight="48.0" prefWidth="160.0" text="Hold Sale" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
+            <Separator layoutX="7.0" layoutY="180.0" prefHeight="3.0" prefWidth="444.0" />
+            <Separator layoutX="439.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="406.0" prefWidth="25.0" />
+            <Button layoutX="7.0" layoutY="2.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="47.0" text="Back" />
+            <Separator layoutX="7.0" layoutY="30.0" prefHeight="3.0" prefWidth="627.0" />
+            <Separator layoutX="54.0" layoutY="1.0" orientation="VERTICAL" prefHeight="28.0" prefWidth="6.0" />
+            <TextField fx:id="BarcodeTextField" layoutX="40.0" layoutY="142.0" prefHeight="26.0" prefWidth="391.0" />
+            <Label layoutX="464.0" layoutY="40.0" prefHeight="48.0" prefWidth="86.0" text="Cart">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="BonusRegisteredCheckBox" layoutX="40.0" layoutY="84.0" mnemonicParsing="false" text="Bonus registered" />
+            <ComboBox layoutX="57.0" layoutY="2.0" prefWidth="150.0" promptText="Held orders">
+               <contextMenu>
+                  <ContextMenu>
+                     <items>
+                        <Menu mnemonicParsing="false" text="Unspecified Menu">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="Action 1" />
+                          </items>
+                        </Menu>
+                     </items>
+                  </ContextMenu>
+               </contextMenu>
+            </ComboBox>
+            <ListView fx:id="productsListView" layoutX="456.0" layoutY="86.0" prefHeight="179.0" prefWidth="170.0" />
+            <ScrollBar layoutX="610.0" layoutY="86.0" orientation="VERTICAL" prefHeight="179.0" prefWidth="16.0" />
+            <Label fx:id="totalPriceLabel" layoutX="464.0" layoutY="285.0" prefHeight="48.0" prefWidth="150.0" text="Price:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="117.0" text="Enter barcode:" />
+            <Label fx:id="infoLabel" layoutX="39.0" layoutY="45.0" prefHeight="37.0" prefWidth="364.0" text="InfoLabel" />
+            <ListView fx:id="productCatalogListView" layoutX="630.0" layoutY="31.0" prefHeight="296.0" prefWidth="196.0" />
+            <Label layoutX="647.0" layoutY="7.0" prefHeight="17.0" prefWidth="150.0" text="Product catalog" />
+            <Button fx:id="swipeBonusCardButton" onAction="#handleSwipeBonusCardButton" layoutX="221.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" text="Swipe bonus card" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
